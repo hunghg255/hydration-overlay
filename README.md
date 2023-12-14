@@ -4,6 +4,8 @@ This package displays an overlay during Hydration Errors, providing an explicit 
 
 ![after](./imgs/after.png)
 
+Fork from [BuilderIO/hydration-overla](https://github.com/BuilderIO/hydration-overlay.git)
+
 ## Installation
 
 ```bash
