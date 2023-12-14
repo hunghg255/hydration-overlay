@@ -1,3 +1,5 @@
+//@ts-nocheck
+
 import webpack from "webpack";
 import path from "path";
 import { type NextConfig } from "next";

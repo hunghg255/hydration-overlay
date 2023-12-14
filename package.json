@@ -1,10 +1,67 @@
 {
-  "dependencies": {
-    "@changesets/cli": "^2.27.1"
+  "name": "next-hydration-overlay",
+  "description": "React utility for descriptive hydration mismatch errors.",
+  "version": "0.0.8",
+  "files": [
+    "dist",
+    "module-augmentations.d.ts"
+  ],
+  "keywords": [
+    "react",
+    "hydration",
+    "overlay",
+    "builder.io"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BuilderIO/hydration-overlay.git"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./next": {
+      "types": "./dist/next-plugin.d.ts",
+      "import": "./dist/next-plugin.js",
+      "require": "./dist/next-plugin.js"
+    }
   },
   "scripts": {
-    "change": "changeset",
-    "release": "changeset version",
-    "pub": "pnpm --filter \"@builder.io/react-hydration-overlay\" build && changeset publish"
+    "tsc": "tsc",
+    "build": "tsup",
+    "pkg:attw": "attw --pack .",
+    "pkg:publint": "publint --strict",
+    "lint-pkg": "pnpm pkg:publint && pnpm pkg:attw"
+  },
+  "peerDependencies": {
+    "next": ">= 13.0.0",
+    "react": ">=16",
+    "react-dom": ">=16"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.13.3",
+    "@types/beautify": "^0.0.3",
+    "@types/diff": "^5.0.9",
+    "@types/node": "^20",
+    "@types/pretty": "^2.0.3",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.17",
+    "next": "14.0.4",
+    "publint": "^0.2.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rimraf": "^3.0.2",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3",
+    "webpack": "^5.89.0"
+  },
+  "dependencies": {
+    "beautify": "^0.0.8",
+    "react-diff-viewer-continued": "^3.3.1"
   }
 }
