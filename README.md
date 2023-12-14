@@ -7,7 +7,7 @@ This package displays an overlay during Hydration Errors, providing an explicit 
 ## Installation
 
 ```bash
-npm install @builder.io/react-hydration-overlay
+npm install next-hydration-overlay
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ npm install @builder.io/react-hydration-overlay
 First, wrap the root of your app in the `HydrationOverlay` component.
 
 ```tsx
-import { HydrationOverlay } from "@builder.io/react-hydration-overlay";
+import { HydrationOverlay } from "next-hydration-overlay";
 
 const App = () => {
   return (
@@ -39,7 +39,7 @@ in `next.config.js`:
 ```js
 const {
   withHydrationOverlay,
-} = require("@builder.io/react-hydration-overlay/next");
+} = require("next-hydration-overlay/next");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

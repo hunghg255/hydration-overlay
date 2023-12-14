@@ -1,7 +1,7 @@
 {
   "name": "next-hydration-overlay",
   "description": "React utility for descriptive hydration mismatch errors.",
-  "version": "0.0.8",
+  "version": "0.0.10",
   "files": [
     "dist",
     "module-augmentations.d.ts"
@@ -14,7 +14,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BuilderIO/hydration-overlay.git"
+    "url": "git+https://github.com/hunghg255/hydration-overlay.git"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
