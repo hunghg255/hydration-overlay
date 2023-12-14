@@ -88,6 +88,11 @@ export function Overlay() {
               justifyContent: 'space-between',
               borderBottom: '1px solid black',
               alignItems: 'center',
+              position: 'sticky',
+              top: 0,
+              left: 0,
+              backgroundColor: 'white',
+              zIndex: 10,
             }}
           >
             <div

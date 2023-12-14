@@ -1,4 +1,3 @@
-"use strict";
 console.log("injector works");
 window.BUILDER_HYDRATION_OVERLAY = {};
 window.addEventListener("error", (event) => {
