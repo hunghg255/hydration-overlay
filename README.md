@@ -30,6 +30,22 @@ const App = () => {
 };
 ```
 
+- load the `HydrationOverlay` component from `next-hydration-overlay` on client
+
+```tsx
+const HydrationOverlay = dynamic(() => import("next-hydration-overlay").then((mod) => mod.Overlay), { ssr: false });
+
+const App = () => {
+  return (
+    <>
+      <YourApp />
+
+      <HydrationOverlay />
+    </>
+  );
+};
+```
+
 ### Plugin
 
 Second, add the plugin for your framework. Currently, we only support Next.js.
@@ -49,6 +65,28 @@ const nextConfig = {
 };
 
 module.exports = withHydrationOverlay({
+  /**
+   * Optional: `appRootSelector` is the selector for the root element of your app. By default, it is `#__next` which works
+   * for Next.js apps with pages directory. If you are using the app directory, you should change this to `main`.
+   */
+  appRootSelector: "main",
+})(nextConfig);
+```
+
+- Setup on Prod
+```js
+const {
+  withHydrationOverlay,
+} = require("next-hydration-overlay/next");
+
+const isProd = process.env.NODE_ENV === "production";
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  /** your config here */
+};
+
+module.exports = isProd ? nextConfig : withHydrationOverlay({
   /**
    * Optional: `appRootSelector` is the selector for the root element of your app. By default, it is `#__next` which works
    * for Next.js apps with pages directory. If you are using the app directory, you should change this to `main`.
