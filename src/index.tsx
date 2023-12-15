@@ -15,8 +15,8 @@ export function Overlay() {
   const [hasHydrationMismatch, setHasHydrationMismatch] = useState(false);
 
   useEffect(() => {
-    const ssrHtml = (window as any).BUILDER_HYDRATION_OVERLAY.SSR_HTML;
-    const newCSRHtml = (window as any).BUILDER_HYDRATION_OVERLAY.CSR_HTML;
+    const ssrHtml = (window as any)?.BUILDER_HYDRATION_OVERLAY?.SSR_HTML;
+    const newCSRHtml = (window as any)?.BUILDER_HYDRATION_OVERLAY?.CSR_HTML;
 
     if (!ssrHtml || !newCSRHtml) {
       return;
@@ -28,7 +28,7 @@ export function Overlay() {
     setCSRHtml(newCSR);
 
     setShowModal(true);
-    if ((window as any).BUILDER_HYDRATION_OVERLAY.ERROR) {
+    if ((window as any)?.BUILDER_HYDRATION_OVERLAY?.ERROR) {
       setHasHydrationMismatch(true);
     }
   }, []);

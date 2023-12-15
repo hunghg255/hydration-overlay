@@ -40,8 +40,9 @@ function Overlay() {
     const [showModal, setShowModal] = (0, react_1.useState)(true);
     const [hasHydrationMismatch, setHasHydrationMismatch] = (0, react_1.useState)(false);
     (0, react_1.useEffect)(() => {
-        const ssrHtml = window.BUILDER_HYDRATION_OVERLAY.SSR_HTML;
-        const newCSRHtml = window.BUILDER_HYDRATION_OVERLAY.CSR_HTML;
+        var _a, _b, _c;
+        const ssrHtml = (_a = window === null || window === void 0 ? void 0 : window.BUILDER_HYDRATION_OVERLAY) === null || _a === void 0 ? void 0 : _a.SSR_HTML;
+        const newCSRHtml = (_b = window === null || window === void 0 ? void 0 : window.BUILDER_HYDRATION_OVERLAY) === null || _b === void 0 ? void 0 : _b.CSR_HTML;
         if (!ssrHtml || !newCSRHtml) {
             return;
         }
@@ -50,7 +51,7 @@ function Overlay() {
         const newCSR = (0, beautify_1.default)(newCSRHtml, { format: 'html' });
         setCSRHtml(newCSR);
         setShowModal(true);
-        if (window.BUILDER_HYDRATION_OVERLAY.ERROR) {
+        if ((_c = window === null || window === void 0 ? void 0 : window.BUILDER_HYDRATION_OVERLAY) === null || _c === void 0 ? void 0 : _c.ERROR) {
             setHasHydrationMismatch(true);
         }
     }, []);
