@@ -39,13 +39,6 @@ export function Overlay() {
 
   const renderModal = showModal && hasHydrationMismatch && typeof document !== 'undefined';
 
-  console.log('renderModal', {
-    showModal,
-    hasHydrationMismatch,
-    doc: typeof document !== 'undefined',
-    renderModal,
-  });
-
   if (!renderModal) {
     return null;
   }

@@ -4,6 +4,11 @@ import webpack from "webpack";
 import path from "path";
 import { type NextConfig } from "next";
 import { WebpackConfigContext } from "next/dist/server/config-shared";
+import { fileURLToPath } from 'node:url'
+
+export const DIR_DIST = typeof __dirname !== 'undefined'
+  ? __dirname
+  : dirname(fileURLToPath(import.meta.url))
 
 // `entryPoint` can be a string, array of strings, or object whose `import` property is one of those two
 const getEntryPoint = (entryPoint: any): string[] | null => {
@@ -46,7 +51,7 @@ async function addScriptToEntryProperty(
       const currentEntryPoint = newEntryProperty[entryPointName];
       const newEntryPoint = getEntryPoint(currentEntryPoint);
       const injectedScriptPath = path.join(
-        __dirname,
+        DIR_DIST,
         "hydration-overlay-initializer.js"
       );
 

@@ -13,9 +13,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.withHydrationOverlay = void 0;
+exports.withHydrationOverlay = exports.DIR_DIST = void 0;
 const webpack_1 = __importDefault(require("webpack"));
 const path_1 = __importDefault(require("path"));
+const node_url_1 = require("node:url");
+exports.DIR_DIST = typeof __dirname !== 'undefined'
+    ? __dirname
+    : dirname((0, node_url_1.fileURLToPath)(import.meta.url));
 // `entryPoint` can be a string, array of strings, or object whose `import` property is one of those two
 const getEntryPoint = (entryPoint) => {
     if (typeof entryPoint === "string") {
@@ -48,7 +52,7 @@ function addScriptToEntryProperty(currentEntryProperty, buildContext) {
             if (isBrowserMainAppEntryPoint) {
                 const currentEntryPoint = newEntryProperty[entryPointName];
                 const newEntryPoint = getEntryPoint(currentEntryPoint);
-                const injectedScriptPath = path_1.default.join(__dirname, "hydration-overlay-initializer.js");
+                const injectedScriptPath = path_1.default.join(exports.DIR_DIST, "hydration-overlay-initializer.js");
                 if (!newEntryPoint || newEntryPoint.includes(injectedScriptPath)) {
                     return newEntryProperty;
                 }
